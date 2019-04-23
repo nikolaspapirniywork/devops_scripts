@@ -13,6 +13,7 @@ for i, localImage in enumerate(localImages):
     print (output1)
 
     push = 'docker push {}:{}'.format(remoteImages[i], os.environ['BUILD_NUMBER'])
+    print(push)
     process2 = subprocess.Popen(push.split(), stdout=subprocess.PIPE)
     output2, error2 = process2.communicate()
     print (output2)
