@@ -2,8 +2,8 @@ import sys
 import subprocess
 import os
 
-localImages = os.environ['DOCKER_LOCAL_IMAGES'].split(',')
-remoteImages = os.environ['DOCKER_REGISTRY_REMOTE_IMAGES'].split(',')
+localImages = os.environ['DOCKER_LOCAL_IMAGES'].strip().split(',')
+remoteImages = os.environ['DOCKER_REGISTRY_REMOTE_IMAGES'].strip().split(',')
 
 for i, localImage in enumerate(localImages):
     tag = 'docker tag {}:latest {}:{}'.format(localImage, remoteImages[i], os.environ['BUILD_NUMBER'])
